@@ -1,0 +1,34 @@
+.detailContainer {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .seriesImage {
+    width: 200px;
+    height: auto;
+    margin-right: 20px;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .runtime {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .rating {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .premiered {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .summary {
+    font-size: 16px;
+  }

@@ -1,0 +1,113 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.backgroundContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 100%;
+    margin-top: 100px;
+    padding-bottom: 40px;
+    background-color: #f9f9f9;
+    
+  }
+
+.layoutContainer1{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 40px;
+    width: 100%;
+
+}
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+    width: 46%;
+    height: 400px;
+    margin-bottom: 20px;
+    border: 1px solid black;
+    overflow-y: auto; 
+  }
+  
+  .myListContainer {
+    display: flex;
+    flex-direction: column;
+    width: 46%;
+    height: 400px;
+    margin-left: 50px;
+    border: 1px solid black;
+    overflow-y: auto; 
+  }
+
+  .randomSeriesList {
+    width: 95%;
+    height: 250px;
+    border: 1px solid black;
+    margin-top: 20px;
+  }
+
+  .searchInput {
+    width: 75%;
+    padding: 20px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .button {
+    padding: 20px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .results {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .results li {
+    margin-bottom: 5px;
+    font-size: 14px;
+  }
+  .seriesCardContainer {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    line-height: 0.4;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: red;
+  }
+  
+  .checkbox {
+    margin-left: 10px;
+  }
+  
+  .randomButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
+  .randomSeriesCard {
+    width: calc(25% - 20px);
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
