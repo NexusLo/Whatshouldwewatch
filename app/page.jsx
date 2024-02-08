@@ -6,7 +6,7 @@ import styles from '../styles/Layout.module.css';
 export default function Home() {
   return (
     <main className={styles.main}>
-      <Layout />
+      <Wsww />
     </main>
   );
 }

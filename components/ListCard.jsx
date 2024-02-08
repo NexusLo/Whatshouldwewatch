@@ -1,37 +1,32 @@
 " use client"
 import styles from '../styles/SerieCard.module.css';
+import React, { useState } from 'react';
 
-const ListCard = (props) =>{
+const ListCard = (props) => {
+  const [addedToRandom, setAddedToRandom] = useState(false);
 
-  // Ajout de series
   const handleAddRandom = () => {
-    const seriesData = {
-      name: props.name,
-      runtime: props.runtime,
-      rating: props.rating,
-      premiered: props.premiered,
-      image: props.image
-    };
-    props.ToggleSelection(seriesData);
+    setAddedToRandom(!addedToRandom);
+    props.ToggleSelection(props.id, !addedToRandom);
   };
 
   return (
     <div className={styles.cardContainer}>
       <img className={styles.image} src={props.image} alt={props.name} />
       <div className={styles.textContainer}>
-          <p className={styles.name}>{props.name}</p>
-          <p className={styles.runtime}>{props.runtime} min</p>
-          <p className={styles.rating}>{props.rating}</p>
-          <p className={styles.premiered}>{props.premiered}</p>
+        <p className={styles.name}>{props.name}</p>
+        <p className={styles.runtime}>{props.runtime} min</p>
+        <p className={styles.rating}>{props.rating}</p>
+        <p className={styles.premiered}>{props.premiered}</p>
       </div>
       <div className={styles.buttonContainer}>
-         <input
-            type="checkbox"
-            onClick={() => handleAddRandom()}
-            className={styles.checkbox}
+        <input
+          type="checkbox"
+          checked={addedToRandom}
+          onChange={handleAddRandom}
+          className={styles.checkbox}
         />
       </div>
-      
     </div>
   );
 }
