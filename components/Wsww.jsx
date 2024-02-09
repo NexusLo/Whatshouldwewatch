@@ -1,9 +1,11 @@
 "use client"
 
 {/****************** IMPORT DEPENDANCES ET COMPOSANTS ******************/}
+
 import React, { useState, useEffect } from 'react';
 import SerieCard from './SerieCard';
 import ListCard from './ListCard';
+import SummaryCard from './SummaryCard';
 import styles from '../styles/Wsww.module.css';
 
 function Wsww() {
@@ -11,6 +13,8 @@ function Wsww() {
   const [searchResults, setSearchResults] = useState([]);
   const [addedSeries, setAddedSeries] = useState([]);
   const [randomSeriesList, setRandomSeriesList] = useState([]);
+
+{/***************** RECHERCHE VIA TVMAZE ET FORMATTAGE DE RESULATS *****************/}
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,6 +31,7 @@ function Wsww() {
         runtime: item.show.runtime,
         rating: item.show.rating ? item.show.rating.average : null,
         premiered: item.show.premiered.split('-')[0],
+        summary: item.show.summary ? item.show.summary.replace(/<[^>]*>/g, '').substring(0,200): null,
       }));
       setSearchResults(formattedResults);
     } catch (error) {
@@ -34,15 +39,19 @@ function Wsww() {
     }
   };
 
+  {/*****************  AJOUT SERIE A MYLIST POUR CHOIX ALEATOIRE *****************/}
+  
   const updateAddSeries = (seriesData) => {
     if (addedSeries.find(series => series.name === seriesData.name)) {
       setAddedSeries(addedSeries.filter(series => series.name !== seriesData.name)); 
     } else {
       setAddedSeries([...addedSeries, seriesData]);
       setRandomSeriesList([...randomSeriesList, seriesData]); // Ajouter à la randomSeriesList
-      console.log("Série ajoutée à addedSeries et à randomSeriesList :", seriesData);
+      console.log("Données de la série ajoutée à randomSeriesList :", seriesData);
     }
   };
+
+  {/*****************  GESTION SELECTION ALEATOIRE PARMI MYLIST *****************/}
 
   const handlePickRandomSeries = () => {
     const randomIndex = Math.floor(Math.random() * randomSeriesList.length);
@@ -64,11 +73,11 @@ function Wsww() {
   };
 
   return (
-    <div className={styles.main}>
       <div className={styles.backgroundContainer}>
         <div className={styles.layoutContainer1}>
           <div className={styles.searchContainer}>
             <h2 className={styles.searchTitle}>Rechercher </h2>
+            <div className={styles.line}></div>
             <form onSubmit={handleSubmit}>
               <input
                 type="text"
@@ -77,7 +86,6 @@ function Wsww() {
                 placeholder="Entrez votre recherche"
                 className={styles.searchInput}
               />
-              <button type="submit" className={styles.button}>Search</button> 
             </form>
             <ul className={styles.results}> 
               {searchResults.map((result) => (
@@ -88,7 +96,9 @@ function Wsww() {
                     runtime={result.runtime}
                     rating={result.rating}
                     premiered={result.premiered}
+                    summary={result.summary}
                     updateAddSeries={updateAddSeries}
+                    addedSeries={addedSeries}
                   />
                 </li>
               ))}
@@ -96,6 +106,7 @@ function Wsww() {
           </div>
           <div className={styles.myListContainer}>
             <h2 className={styles.listTitle}>Ma Liste </h2>
+            <div className={styles.line}></div>
             <ul className={styles.results}>
               {addedSeries.map((data) => (
                 <li key={data.id} className={styles.results}>
@@ -105,6 +116,7 @@ function Wsww() {
                     runtime={data.runtime}
                     rating={data.rating}
                     premiered={data.premiered}
+                    summary={data.summary}
                     ToggleSelection={() => ToggleSelection(data)}
                     onDelete={() => removeFromList(data)}
                   />
@@ -113,23 +125,26 @@ function Wsww() {
             </ul>
           </div>
         </div>
-        <div className={styles.randomSeriesList}>
-          <button onClick={handlePickRandomSeries} className={styles.randomButton}>Je vais regarder quoi ce soir?</button>
+        <div className={styles.randomSeriesContainer}>
+          <div className={styles.randomButtonContainer}>
+            <button onClick={handlePickRandomSeries} className={styles.randomButton}>Je vais regarder quoi ce soir?</button>
+          </div>
+          <div className={styles.randomCardContainer}>
           {randomSeriesList.map((data, i) => (
-            <SerieCard
+            <SummaryCard
               key={i}
-              title={data.title}
+              name={data.name}
               image={data.image}
               runtime={data.runtime}
               rating={data.rating}
               premiered={data.premiered}
-              updateAddSeries={updateAddSeries}
+              summary={data.summary} 
               className={styles.randomSeriesCard}
             />
           ))}
+          </div>
         </div>
       </div>
-    </div>
   );
 }
 

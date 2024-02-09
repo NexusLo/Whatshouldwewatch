@@ -1,0 +1,34 @@
+								Planification projet What Should We Watch
+								
+
+(Mardi 00/02/2024 10h) Objectif : Envoi mail 2 projets : 1 projet avec fonctionnalités et style de base, 1 projet avec fonctionnalités bonus et style retravaillé
+
+
+(Mardi 06/02/2024 10h) 1 ere étape : Prise de connaissance du sujet , choix des technologies à utiliser : NextJS + React pas d'usage de tailwindCSS pour le moment, constitution de l'arborescence du dossier Wsww -> OK
+
+(Mardi 06/02/2024 12h) 2 eme etape : Installation de l'environnement local nextJS et des dépendances de l'applications, 1ere "difficulté" rencontrée : ne pas oublier de déclarer un composant client sous nextJS en utilisant "use client" au début de chaque composant concerné -> OK
+
+
+(Mardi 06/02/2024 16h) 3eme étape : Décomposition de la logique de l'application en 4 composants : SerieCard pour recherche des séries via l'API TVMaze et affichage des résultats, ListCard pour enregistrement des séries dans une liste par l'utilisateur, SummaryCard pour affichage de la série choisie au hasard par l'algorithme, Wsww pour l'affichage du rendu global -> OK
+
+(Mardi 06/02/2024 19h) 4eme étape : Lecture doc API TVMaze, utilisation de thunderClient pour savoir comment extraire les données de l'API, production du composant SerieCard, de la recherche via l'API et affichage des résultats -> OK
+
+
+(Mercredi 07/02/2024 8h) 5eme étape : Production des composants ListCard et SummaryCard, 2eme difficulté rencontrée : cocher une checkbox pour conditionner l'ajout d'une série à une liste qui permettra à l'utilisateur de visionner une série choisie aléatoirement -> fonctionnalité à retravailler
+  
+
+!!!Mercredi (08/02/2024 2h) : ALEA dysfonctionement du pilote de gestion des touches clavier sous ubuntu, impossible de produire la moindre ligne de code cohérente -> achat clavier externe seulement le lendemain à 11h
+
+Jeudi (08/02/2024 11h40) : Reprise de la phase de production de la logique de l'application, difficulté à gérer la sélection aléatoire d'une série en cochant la checkbox associée + début réalisation CSS final
+ 
+Vendredi (09/02/2024 8h) étape : Réalisation du style de l'application en s'assurant que celle-ci soit responsive -> OK
+
+
+Bilan : Recheche via APi et affichage résultat : OK
+	Ajout Série à Ma Liste via bouton : OK
+	Bouton Ajouter à ma liste grisé après ajout : à retravailler
+	Ajouter/retirer série au choix aléatoire via clic sur checkbox: à retravailler 
+	Choix aléatoire de série : à retravailler
+        General look : OK
+        Responsive design : OK
+        Bonus : NON

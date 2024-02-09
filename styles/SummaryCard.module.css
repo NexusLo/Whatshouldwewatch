@@ -1,0 +1,77 @@
+.cardContainer {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  line-height: 0.4;
+  padding: 20px;
+  margin-left: 20px;
+  background-color: #f9f9f9;
+  width: 90%;
+  height: 70%;
+}
+
+.textContainer{
+  margin-left: 25px;
+  width: 70%;
+  height: 100%;
+  margin-bottom: 120px;
+}
+.runtime, .premiered, .rating{
+  font-size: 16px;
+}
+.name{
+  font-size: 20px;
+}
+.summary{
+  font-size: 12px;
+  line-height: 1;
+}
+
+
+.buttonContainer{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 30%;
+  margin-right: 10px;
+}
+
+.image {
+  width: 18%;
+  height: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.seriesDetail {
+  margin-bottom: 5px;
+}
+
+@media (max-width: 780px) {
+  .cardContainer {
+    width: 78%;
+  }
+
+  .textContainer {
+    width: 100%; 
+  }
+
+  .buttonContainer {
+    justify-content: center;
+  }
+
+  .image {
+    margin-right: 0; 
+  }
+}
+
+@media (min-width: 781px) and (max-width: 1280px) {
+  .searchInput {
+    width: 79%; 
+    padding: 15px; 
+  }
+
+  .line {
+    width: 85%; 
+  }
+}
